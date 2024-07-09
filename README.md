@@ -1,2 +1,61 @@
-# MSAT
-MSAT:  Multi-Sensory All Weather Trajectory Predictor 
+
+![MSAT_workflow](https://github.com/mastermert/MSAT/assets/67050456/194e130a-b563-4081-b7d4-ecce05b421b5)
+
+## *MSAT: Multi-Sensory All Weather Trajectory Predictor*
+
+> Due to the ease, safety and latent ecological gains associated with autonomous vehicles (AV’s), researchers and industry have shown tremendous interest in AV. Despite optimistic methods from leading au-
+tonomous vehicle (AV) companies about the future of AV technology, current methods face significant limitations. These methods have constraints such as the need for high-definition maps, clear sensor data, and accurate GPS information, which hinder broader implementation and restrict AV technology to small-scale
+applications.Predicting the trajectories around an AV is challenging due to sensor imperfections, particularly under adverse environmental and weather conditions, which poses a significant obstacle to their widespread
+use. To address this issue, a new deep Learning-based framework called the Multi-Sensory All Weather Trajectory Predictor (MSAT) is proposed, which serves as a robust and complementary trajectory prediction solution under inclement weather conditions. The proposed approach employs an autoencoder-based trajectory
+prediction algorithm combined with a novel transformer-based multi-sensor fusion block and multi-weather SensorNet to predict the trajectories of multiple agents in adverse weather conditions. MSAT incorporates sensory data such as camera, lidar, and radar data as environmental factors, which allows for improved predictions under conditions where semantic map information is not available. The proposed framework demonstrates the effectiveness of MSAT through experiments conducted in a variety of challenging scenarios. The proposed
+framework achieved low average displacement and final displacement error in predicting the future motions of multi-agents in adverse weather conditions such as rain, fog and snow. Overall, this work is anticipated to bring AVs one step closer to safe and reliable autonomous driving in all-weather conditions.
+
+## **Installation:**
+Clone This Repository:
+```
+https://github.com/mastermert/MSAT.git
+```
+Create a conda environment
+```
+conda create -n msat python==3.10
+```
+Activate your conda environment
+```
+conda activate msat
+```
+  Install Requirements
+```
+pip install requirements.txt
+```
+ Clone Robotcar SDK into MSAT diractory
+```bash
+cd MSAT
+https://github.com/ori-mrg/robotcar-dataset-sdk.git
+```
+## **Training**
+
+**Single Sensor Training**
+
+First Train Variational autoencoder:
+```python
+python train.py --cfg pre_train_camera
+```
+Then Train Trajectory sampler:
+```python
+python train.py --cfg train_camera`
+```
+**Multi Sensor Training**
+	
+First Train Sensor Fusion Transformer:
+```python
+python train_transformer.py  --src1  lidar  --tgt  camera  --exp_name  lidar_camera_large  --cfg  pre_train_lidar_camera
+```
+Second Train Variational autoencoder:
+```python
+python train.py --cfg pre_train_lidar_camera
+```
+Third Train Trajectory sampler:
+```python
+python train.py --cfg train_lidar_camera
+```
+
