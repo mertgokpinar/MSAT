@@ -1,0 +1,96 @@
+# ------------------- General Options -------------------------
+
+description                  : msat (Before DLow)
+results_root_dir             : results/article_results/Lidar #!!!!! change results folder -mg 
+seed                         : 1
+dataset                      : 'radiate'
+data_root_ethucy             : datasets/eth_ucy
+data_root_nuscenes_pred      : datasets/nuscenes_pred
+data_root_radiate            : /media/nfs/radiate 
+load_map                     : true
+map_version                  : 0.1
+sensor                       : 'lidar'    #also change sensor in map_encoder module, choices radar,lidar,camera,all -mg 
+fix_origin                   : false
+loss                         : false
+optimization                 : false
+optimizing_method            : false
+trainingmodel_weight         : 0.10
+basemodel_weight             : 0.90           
+
+# ------------------- Feature Extractor -------------------------
+
+past_frames                  : 4
+future_frames                : 12
+min_past_frames              : 4
+min_future_frames            : 12
+frame_skip                   : 2
+
+traj_scale                   : 25
+motion_dim                   : 2
+forecast_dim                 : 2
+
+# ------------------- Model -------------------------
+
+model_id: msat_single #change model type depending on sensor type -mg
+tf_version: v2
+tf_model_dim: 256
+tf_ff_dim: 512
+tf_nhead: 32
+tf_dropout: 0.2
+input_type: ['scene_norm','vel','heading','map'] 
+fut_input_type: ['scene_norm',vel,'heading','map'] 
+dec_input_type: ['heading', 'map'] #remove map input to disable context -mg
+pred_type: 'scene_norm'
+sn_out_type: 'norm'
+pos_concat: true
+rand_rot_scene: true
+
+use_map: true #context learner flag -mg
+map_encoder:
+  model_id: 'context_net'
+  normalize: true 
+  hdim: [32, 32, 32, 1]
+  kernels: [5, 5, 5, 3]
+  strides: [2, 2, 1, 1]  # amount of movement of filter over image. -mg
+  out_dim: 32
+  dropout: 0.5
+  sensor : 'lidar' #change sensor input -mg
+
+context_encoder:
+  nlayer: 2
+
+future_decoder:
+  nlayer: 2
+  out_mlp_dim: [512, 256]
+
+future_encoder:
+  nlayer: 2
+
+# ------------------- VAE-------------------------
+
+nz                           : 24
+sample_k                     : 10
+learn_prior                  : true
+
+# ------------------- Training Parameters -------------------------
+
+
+lr                           : 1.e-4
+loss_cfg:
+  mse:
+    weight: 1.0
+  kld:
+    weight: 1.0    #increasing kld weight since it increase initialy -mg
+    min_clip: 2.0
+  sample:
+    weight: 1.0
+    k: 10
+
+num_epochs                   : 30
+lr_fix_epochs                : 10
+lr_scheduler: 'step'
+decay_step: 10
+decay_gamma: 0.5
+print_freq                   : 20
+model_save_freq              : 10
+

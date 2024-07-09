@@ -1,0 +1,3 @@
+CUDA_VISIBLE_DEVICES=1 python train_transformer.py --src1 lidar --tgt radar --exp_name lidar_radar_large --cfg pre_train_lidar_radar
+CUDA_VISIBLE_DEVICES=1 python train_transformer.py --src1 lidar --tgt camera --exp_name lidar_camera_large --cfg pre_train_lidar_camera
+CUDA_VISIBLE_DEVICES=1 python train_transformer.py --src1 lidar --src2 camera --tgt radar --exp_name allsensor_large --cfg pre_train_allsensor

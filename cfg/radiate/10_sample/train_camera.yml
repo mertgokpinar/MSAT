@@ -1,0 +1,64 @@
+# ------------------- General Options -------------------------
+
+description                  : msat (DLow)
+results_root_dir             : results/article_results/Camera
+seed                         : 0 
+dataset                      : 'radiate'
+data_root_ethucy             : datasets/eth_ucy
+data_root_nuscenes_pred      : datasets/nuscenes_pred
+data_root_radiate            : /media/nfs/radiate 
+load_map                     : true # change map flag depending on experiment -mg
+map_version                  : 0.1
+sensor                       : 'camera'
+fix_origin                   : false 
+optimization                 : false
+fuse_net                     : 'None'
+loss                         : false
+
+# ------------------- Feature Extractor -------------------------
+
+past_frames                  : 4
+future_frames                : 12
+min_past_frames              : 4
+min_future_frames            : 12
+
+frame_skip                   : 2
+traj_scale                   : 25
+motion_dim                   : 2
+forecast_dim                 : 2
+
+# ------------------- Model -------------------------
+model_id: dlow
+pred_cfg: pre_train_camera # change your cfg name  
+pred_epoch: 30 # loads model from defined epoch
+qnet_mlp: [512, 256]
+share_eps: true
+train_w_mean: true
+
+# ------------------- VAE-------------------------
+
+nz                           : 24
+sample_k                     : 10
+
+# ------------------- Training Parameters -------------------------
+
+lr                           : 1.e-4
+loss_cfg:
+  kld:
+    weight: 0.1
+    min_clip: 10
+  diverse:
+    weight: 1
+    d_scale: 1
+  recon:
+    weight: 5.0
+
+num_epochs                   : 10
+lr_fix_epochs                : 10
+lr_scheduler: 'step'
+decay_step: 5
+decay_gamma: 0.5
+print_freq                   : 20
+model_save_freq              : 10
+
+

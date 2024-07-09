@@ -1,0 +1,65 @@
+# ------------------- General Options -------------------------
+
+description                  : msat (DLow)
+results_root_dir             : results/msat_new/radar_2s
+seed                         : 1
+dataset                      : 'radiate'
+data_root_radiate            : /media/nfs/radiate
+load_map                     : true # change map flag depending on experiment -mg
+map_version                  : 0.1
+sensor                       : 'radar'
+fix_origin                   : false 
+fuse_net                     : 'None'
+loss                         : false # loss function to use
+optimization                 : false # optimize model with base model
+optimizing_method            : false # avarage or weigted
+trainingmodel_weight         : 0.4
+basemodel_weight             : 0.6
+# ------------------- Feature Extractor -------------------------
+
+past_frames                  : 4
+future_frames                : 12
+min_past_frames              : 4
+min_future_frames            : 12 
+
+
+frame_skip                   : 1
+
+traj_scale                   : 25
+motion_dim                   : 2
+forecast_dim                 : 2
+
+# ------------------- Model -------------------------
+model_id: dlow
+pred_cfg: pre_train_radar # change your cfg name  
+pred_epoch: 90 #loads model from defined epoch, modified according to earlystop epoch.
+qnet_mlp: [512, 256]
+share_eps: true
+train_w_mean: true
+
+# ------------------- VAE-------------------------
+
+nz                           : 24
+sample_k                     : 10
+
+# ------------------- Training Parameters -------------------------
+
+lr                           : 1.e-4
+loss_cfg:
+  kld:
+    weight: 0.1
+    min_clip: 10
+  diverse:
+    weight: 1.0
+    d_scale: 1
+  recon:
+    weight: 5.0
+
+num_epochs                   : 50
+lr_fix_epochs                : 5
+lr_scheduler: 'step'
+decay_step: 5
+decay_gamma: 0.5
+print_freq                   : 200
+model_save_freq              : 5
+
