@@ -42,7 +42,7 @@ python train.py --cfg pre_train_camera
 ```
 Then Train Trajectory sampler:
 ```python
-python train.py --cfg train_camera`
+python train.py --cfg train_camera
 ```
 **Multi Sensor Training**
 	
