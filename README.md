@@ -54,7 +54,7 @@ python data/process_nuscenes.py --data_root <PATH_TO_NUSCENES>
 
 **Oxford RobotCar**
 
-For preprocessing Oxford RobotCar dataset, we used publicly avalaible [Gramme](https://github.com/yasinalm/gramme). Use the instructions given in [here](https://github.com/yasinalm/gramme)
+For preprocessing Oxford RobotCar dataset, we used publicly avalaible [Gramme](https://github.com/yasinalm/gramme). Usage instructions given in [here](https://github.com/yasinalm/gramme)
 
 ## **Training**
 
