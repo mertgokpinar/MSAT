@@ -91,6 +91,7 @@ For testing the models, you can pass the trajectory sampler training config file
 python train.py --cfg train_camera # change cfg depending on your training
 ```
 **PreTrained Weights**
+
 We provide weights for the Variational autoencoder, trajectory sampler and Sensor Fusion Transfromer, each of can be downloaded from [here](https://drive.google.com/drive/folders/1CNwQekxh8Zp9jDJ6_3YCPJrD7uVQN9Fq?usp=drive_link)
 
 ## **Reference**
