@@ -101,7 +101,7 @@ If you find our work useful in your research or if you use parts of this code, p
 ```bibtex
 @misc{mert2024msat,
     title={MSAT: Multi-Sensory All Weather Trajectory Predictor},
-    author={Yuan, Ye and Weng, Xinshuo and Ou, Yanglan and Kitani, Kris},
+    author={Gokpinar, M., Naseer, A., Almalioglu, Y. and Turan, M. },
     year={2024}
 }
 ```
