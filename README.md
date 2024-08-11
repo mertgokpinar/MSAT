@@ -32,6 +32,30 @@ pip install requirements.txt
 cd MSAT
 https://github.com/ori-mrg/robotcar-dataset-sdk.git
 ```
+
+## **Preparing Datasets**
+MSAT supports publicly avalaible [Radiate](https://pro.hw.ac.uk/radiate/), [nuScenes](https://www.nuscenes.org/nuscenes) and  [Oxford Radar RobotCar Dataset](https://oxford-robotics-institute.github.io/radar-robotcar-dataset/) datasets, please follow their instructions to access and download datasets.
+
+**Radiate**
+
+To preprocess raw Radiate dataset, run the following code:
+
+```python
+python preprocess_radiate.py 
+```
+
+**NuScenes**
+
+You can use the following code for preprocessing NuScenes:
+
+```python
+python data/process_nuscenes.py --data_root <PATH_TO_NUSCENES>
+```
+
+**Oxford RobotCar**
+
+For preprocessing Oxford RobotCar dataset, we used publicly avalaible [Gramme](https://github.com/yasinalm/gramme). Use the instructions given in [here](https://github.com/yasinalm/gramme)
+
 ## **Training**
 
 **Single Sensor Training**
@@ -58,4 +82,36 @@ Third Train Trajectory sampler:
 ```python
 python train.py --cfg train_lidar_camera
 ```
+
+## **Testing**
+
+For testing the models, you can pass the trajectory sampler training config file as argument.
+
+```python
+python train.py --cfg train_camera # change cfg depending on your training
+```
+**PreTrained Weights**
+We provide weights for the Variational autoencoder, trajectory sampler and Sensor Fusion Transfromer, each of can be downloaded from [here](https://drive.google.com/drive/folders/1CNwQekxh8Zp9jDJ6_3YCPJrD7uVQN9Fq?usp=drive_link)
+
+## **Reference**
+
+If you find our work useful in your research or if you use parts of this code, please consider citing:
+
+```bibtex
+@inproceedings{mert2024msat,
+    title={MSAT: Multi-Sensory All Weather Trajectory Predictor},
+    author={Yuan, Ye and Weng, Xinshuo and Ou, Yanglan and Kitani, Kris},
+    year={2024}
+}
+```
+
+### **Acknowledgments**
+This code build on [Agentformer](https://github.com/Khrylx/AgentFormer) paper can be reached from [here](https://arxiv.org/abs/2103.14023).
+
+This code contains code from the following repositories;
+
+[Gramme](https://github.com/yasinalm/gramme)
+[Radiate SDK](https://github.com/marcelsheeny/radiate_sdk)
+[RobotCar SDK](https://github.com/ori-mrg/robotcar-dataset-sdk)
+
 
