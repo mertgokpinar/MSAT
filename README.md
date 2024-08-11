@@ -98,7 +98,7 @@ We provide weights for the Variational autoencoder, trajectory sampler and Senso
 If you find our work useful in your research or if you use parts of this code, please consider citing:
 
 ```bibtex
-@inproceedings{mert2024msat,
+@misc{mert2024msat,
     title={MSAT: Multi-Sensory All Weather Trajectory Predictor},
     author={Yuan, Ye and Weng, Xinshuo and Ou, Yanglan and Kitani, Kris},
     year={2024}
