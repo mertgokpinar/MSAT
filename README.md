@@ -1,6 +1,3 @@
-
-![MSAT_workflow](https://github.com/mastermert/MSAT/assets/67050456/194e130a-b563-4081-b7d4-ecce05b421b5)
-
 ## *MSAT: Multi-Sensory All Weather Trajectory Predictor*
 
 > Due to the ease, safety and latent ecological gains associated with autonomous vehicles (AV’s), researchers and industry have shown tremendous interest in AV. Despite optimistic methods from leading au-
@@ -9,6 +6,8 @@ applications.Predicting the trajectories around an AV is challenging due to sens
 use. To address this issue, a new deep Learning-based framework called the Multi-Sensory All Weather Trajectory Predictor (MSAT) is proposed, which serves as a robust and complementary trajectory prediction solution under inclement weather conditions. The proposed approach employs an autoencoder-based trajectory
 prediction algorithm combined with a novel transformer-based multi-sensor fusion block and multi-weather SensorNet to predict the trajectories of multiple agents in adverse weather conditions. MSAT incorporates sensory data such as camera, lidar, and radar data as environmental factors, which allows for improved predictions under conditions where semantic map information is not available. The proposed framework demonstrates the effectiveness of MSAT through experiments conducted in a variety of challenging scenarios. The proposed
 framework achieved low average displacement and final displacement error in predicting the future motions of multi-agents in adverse weather conditions such as rain, fog and snow. Overall, this work is anticipated to bring AVs one step closer to safe and reliable autonomous driving in all-weather conditions.
+
+![MSAT_workflow](https://github.com/mastermert/MSAT/assets/67050456/194e130a-b563-4081-b7d4-ecce05b421b5)
 
 ## **Installation:**
 Clone This Repository:
