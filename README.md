@@ -12,7 +12,7 @@ framework achieved low average displacement and final displacement error in pred
 ## **Installation:**
 Clone This Repository:
 ```
-https://github.com/mastermert/MSAT.git
+https://github.com/mertgokpinar/MSAT.git
 ```
 Create a conda environment
 ```
@@ -33,7 +33,7 @@ https://github.com/ori-mrg/robotcar-dataset-sdk.git
 ```
 
 ## **Preparing Datasets**
-MSAT supports publicly avalaible [Radiate](https://pro.hw.ac.uk/radiate/), [nuScenes](https://www.nuscenes.org/nuscenes) and  [Oxford Radar RobotCar Dataset](https://oxford-robotics-institute.github.io/radar-robotcar-dataset/) datasets, please follow their instructions to access and download datasets.
+MSAT supports publicly available [Radiate](https://pro.hw.ac.uk/radiate/), [nuScenes](https://www.nuscenes.org/nuscenes) and  [Oxford Radar RobotCar Dataset](https://oxford-robotics-institute.github.io/radar-robotcar-dataset/) datasets, please follow their instructions to access and download datasets.
 
 **Radiate**
 
@@ -53,7 +53,7 @@ python data/process_nuscenes.py --data_root <PATH_TO_NUSCENES>
 
 **Oxford RobotCar**
 
-For preprocessing Oxford RobotCar dataset, we used publicly avalaible [Gramme](https://github.com/yasinalm/gramme). Usage instructions given in [here](https://github.com/yasinalm/gramme)
+For preprocessing Oxford RobotCar dataset, we used publicly available [Gramme](https://github.com/yasinalm/gramme). Usage instructions given in [here](https://github.com/yasinalm/gramme)
 
 ## **Training**
 
@@ -100,7 +100,7 @@ If you find our work useful in your research or if you use parts of this code, p
 ```bibtex
 @misc{mert2024msat,
     title={MSAT: Multi-Sensory All Weather Trajectory Predictor},
-    author={Gokpinar, M., Naseer, A., Almalioglu, Y. and Turan, M.},
+    author={Gokpinar, M., Kocyigit M.T., Naseer, A., Almalioglu, Y. and Turan, M.},
     year={2024}
 }
 ```
